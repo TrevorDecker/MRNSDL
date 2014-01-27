@@ -3,7 +3,26 @@
 \subsection{Data association}
 \subsection{Scan matching to a model}
 \subsection{Sensor fusion (KF)}
+\subsection{EKF}
+In order for the system to have an up to date estimate of its location between graph updates by integrating new local estimates from on board sensors.  The current system uses updates from wheel odometry, laser odometry, target matches, and April Tag matches. \\  
+
+Each Robots EKF uses an initrial frame repersentation of the robots coordinates. so all measurments must be transformed(projected) onto into the intirial  frame.
+
+
+ To do this we use the following motion model:
+ 
+ 
+ \[ \textbf{Motion Model} =  \left[ \begin{tabular}{cccccc} 1 & 0 & 0 & dt & 0  &  0\\
+ 																				0 & 1 & 0 & 0  & dt &  0\\
+ 																				0 & 0 & 1 & 0  & 0  &  dt\\  \end{tabular} \right] \]
+ 																				
+ 																	
+We have two distinct types of update steps: relative and absoulte measurments
+
+absoulte observation matrix:  
 
 \subsection{Pose graph}
+
+
 
 \subsection{EKF}
